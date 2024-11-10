@@ -1,0 +1,11 @@
+{{template "base" .}}
+
+{{define "info"}}
+<p>
+{{if ne (index .StringMap "visited") ""}}
+This is the Booking page.
+{{else}}
+Visit the <a href="/">Home page</a> first.
+{{end}}
+<p>
+{{end}}

@@ -13,8 +13,10 @@ func routes() http.Handler {
 
 	mux.Use(middleware.Recoverer)
 	mux.Use(noSurf)
+	mux.Use(loadSession)
 
-	mux.Get("/", handlers.Home)
+	mux.Get("/", handlers.Repo.Home)
+	mux.Get("/book", handlers.Repo.Book)
 
 	return mux
 }
