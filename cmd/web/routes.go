@@ -11,6 +11,7 @@ import (
 func routes() http.Handler {
 	mux := chi.NewRouter()
 
+    // middleware
 	mux.Use(middleware.Recoverer)
 	mux.Use(noSurf)
 	mux.Use(loadSession)
