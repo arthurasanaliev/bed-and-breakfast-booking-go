@@ -11,7 +11,7 @@ import (
 func routes() http.Handler {
 	mux := chi.NewRouter()
 
-    // middleware
+	// middleware
 	mux.Use(middleware.Recoverer)
 	mux.Use(noSurf)
 	mux.Use(loadSession)
@@ -19,6 +19,7 @@ func routes() http.Handler {
 	mux.Get("/", handlers.Repo.Home)
 	mux.Get("/book", handlers.Repo.Book)
 
+	// TODO -- learn about file server
 	fileServer := http.FileServer(http.Dir("./static/"))
 	mux.Handle("/static/*", http.StripPrefix("/static", fileServer))
 
